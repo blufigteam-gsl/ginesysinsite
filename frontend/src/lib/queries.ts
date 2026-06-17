@@ -52,7 +52,8 @@ export const BLOG_DETAIL_QUERY = `
   featuredImageAlt,
   bannerImage,
   author->{
-    name
+    name,
+    profileImage
   },
   categories[]->{
     title

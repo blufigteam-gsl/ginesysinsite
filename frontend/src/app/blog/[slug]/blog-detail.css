@@ -1,0 +1,14 @@
+/* BLOG DETAIL PAGE */
+
+.blog-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 50px;
+    align-items: start;
+}
+
+@media (max-width: 991px) {
+    .blog-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}

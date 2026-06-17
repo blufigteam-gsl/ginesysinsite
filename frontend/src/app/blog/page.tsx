@@ -13,6 +13,7 @@ export default async function BlogPage({
     searchParams: Promise<{
         page?: string;
         category?: string;
+        tag?: string;
     }>;
 }) {
 
@@ -20,6 +21,7 @@ export default async function BlogPage({
 
     const currentPage = Number(params.page || 1);
     const selectedCategory = params.category || "";
+    const selectedTag = params.tag || "";
 
     const pageSize = 6;
     const start = (currentPage - 1) * pageSize;
@@ -29,10 +31,15 @@ export default async function BlogPage({
         ? ` && "${selectedCategory}" in categories[]->title`
         : "";
 
+    const tagFilter = selectedTag
+        ? ` && "${selectedTag}" in tags[]->title`
+        : "";
+
     const blogs = await client.fetch(`
         *[
             _type == "blog"
             ${categoryFilter}
+            ${tagFilter}
         ]
         | order(publishDate desc)
         [${start}...${end}]{
@@ -45,7 +52,8 @@ export default async function BlogPage({
             featuredImage,
             featuredImageAlt,
             author->{
-                name
+                name,
+                profileImage
             }
         }
     `);
@@ -55,6 +63,7 @@ export default async function BlogPage({
             *[
                 _type == "blog"
                 ${categoryFilter}
+                ${tagFilter}
             ]
         )
     `);
@@ -77,7 +86,8 @@ export default async function BlogPage({
     `);
 
     const categories = await client.fetch(`
-        *[_type == "category"]{
+        *[_type == "category"]
+        | order(title asc){
             _id,
             title
         }
@@ -137,6 +147,19 @@ export default async function BlogPage({
                                 </p>
 
                                 <div className="blog-meta">
+
+                                    {blog.author?.profileImage ? (
+                                        <img
+                                            src={urlFor(blog.author.profileImage)
+                                                .width(40)
+                                                .height(40)
+                                                .url()}
+                                            alt={blog.author?.name}
+                                            className="author-avatar"
+                                        />
+                                    ) : (
+                                        <div className="author-avatar-placeholder" />
+                                    )}
 
                                     <span>
                                         {blog.author?.name || "Ginesys"}
