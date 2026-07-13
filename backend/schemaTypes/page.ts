@@ -52,6 +52,18 @@ export default defineType({
             type: 'array',
             of: [
                 { type: 'hero' },
+                { type: 'splitHero' },
+                { type: 'videoHero' },
+                { type: 'contentBlock' },
+                { type: 'ctaBanner' },
+                { type: 'htmlBlock' },
+                { type: 'featuresGrid' },
+                { type: 'logoCarousel' },
+                { type: 'counter' },
+                { type: 'owlCarousel' },
+                { type: 'resourceTabs' },
+                { type: 'newsTicker' },
+                { type: 'splitCardHero' },
             ],
         }),
 

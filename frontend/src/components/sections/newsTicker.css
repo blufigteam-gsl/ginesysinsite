@@ -1,0 +1,47 @@
+/* News Ticker Section Styles */
+
+.news-ticker-section {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.news-ticker-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.news-ticker-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    white-space: nowrap;
+    animation: news-ticker-scroll linear infinite;
+    will-change: transform;
+}
+
+.news-ticker-track.pause-on-hover:hover {
+    animation-play-state: paused;
+}
+
+.news-ticker-item {
+    display: inline-block;
+    padding-right: 80px; /* Space between message items */
+    font-weight: 500;
+}
+
+/* Infinite Marquee Scroll Animation */
+@keyframes news-ticker-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}

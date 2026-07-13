@@ -1,8 +1,31 @@
 import Link from "next/link";
-import MegaMenu from "./MegaMenu";
+import { client } from "@/lib/sanity";
+import Navigation from "./Navigation";
+import MobileNavigation from "./MobileNavigation";
 import "./header.css";
 
-export default function Header() {
+export default async function Header() {
+    const blogs = await client.fetch(`
+        *[_type == "blog"] | order(publishDate desc)[0...6]{
+            _id,
+            title,
+            slug,
+            featuredImage,
+            featuredImageAlt
+        }
+    `);
+
+    const events = await client.fetch(`
+        *[_type == "event"] | order(eventStartDate desc)[0...6]{
+            _id,
+            title,
+            slug,
+            featuredImage,
+            featuredImageAlt,
+            eventStartDate
+        }
+    `);
+
     return (
         <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
             <div className="max-w-[1200px] mx-auto px-4 relative">
@@ -14,58 +37,17 @@ export default function Header() {
                             <circle cx="16" cy="16" r="9" stroke="#65cb00" strokeWidth="3.5" fill="none" />
                             <circle cx="30" cy="16" r="9" stroke="#333333" strokeWidth="3.5" fill="none" />
                         </svg>
-                        <span className="font-medium text-2xl tracking-wide text-gray-800">GINESYS</span>
+                        <span className="font-semibold text-2xl tracking-wide text-gray-800">GINESYS</span>
                     </Link>
 
-                    {/* Navigation */}
-                    <nav className="h-full">
-                        <ul className="flex items-center gap-10 h-full">
+                    {/* Desktop Navigation */}
+                    <Navigation blogs={blogs || []} events={events || []} />
 
-                            <li className="group h-full flex items-center">
-                                <button className="font-medium flex items-center gap-1 text-gray-700 hover:text-[#65cb00] transition-colors cursor-pointer h-full">
-                                    Solutions
-                                    <svg className="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-
-                                <MegaMenu type="solutions" />
-                            </li>
-
-                            <li className="group h-full flex items-center">
-                                <button className="font-medium flex items-center gap-1 text-gray-700 hover:text-[#65cb00] transition-colors cursor-pointer h-full">
-                                    Products
-                                    <svg className="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-
-                                <MegaMenu type="products" />
-                            </li>
-
-                            <li className="h-full flex items-center">
-                                <Link href="/company" className="font-medium text-gray-700 hover:text-[#65cb00] transition-colors">
-                                    Company
-                                </Link>
-                            </li>
-
-                            <li className="h-full flex items-center">
-                                <Link href="/pricing" className="font-medium text-gray-700 hover:text-[#65cb00] transition-colors">
-                                    Pricing
-                                </Link>
-                            </li>
-
-                            <li className="h-full flex items-center">
-                                <Link href="/contact-us" className="font-medium text-gray-700 hover:text-[#65cb00] transition-colors">
-                                    Contact Us
-                                </Link>
-                            </li>
-
-                        </ul>
-                    </nav>
+                    {/* Mobile Navigation */}
+                    <MobileNavigation blogs={blogs || []} events={events || []} />
 
                     {/* CTA */}
-                    <div className="flex items-center gap-6">
+                    <div className="hidden lg:flex items-center gap-6">
                         <Link
                             href="/demo"
                             className="bg-[#65cb00] hover:bg-[#57ad00] text-white px-7 py-3 rounded-lg font-semibold transition-colors"
@@ -73,7 +55,7 @@ export default function Header() {
                             Ask For A Demo
                         </Link>
 
-                        <Link href="/login" className="font-medium text-gray-700 hover:text-[#65cb00] transition-colors">
+                        <Link href="/login" className="font-bold text-gray-700 hover:text-[#65cb00] transition-colors">
                             Login
                         </Link>
                     </div>

@@ -1,0 +1,164 @@
+/* Logo Carousel Section Styles */
+
+.logo-carousel-section {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.logo-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-carousel-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.logo-carousel-subheading {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.logo-carousel-heading {
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .logo-carousel-heading {
+        font-size: 22px;
+    }
+}
+
+/* Marquee / Infinite Carousel Track */
+.logo-carousel-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    margin: 10px 0;
+}
+
+/* Gradient fade effects on the edges of the marquee */
+.logo-carousel-marquee-wrapper::before,
+.logo-carousel-marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-carousel-marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--carousel-bg, #0c453c) 20%, transparent);
+}
+
+.logo-carousel-marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--carousel-bg, #0c453c) 20%, transparent);
+}
+
+/* If background is customized, we adapt gradient colors using background-color inherit details via CSS variables */
+.logo-carousel-track {
+    display: flex;
+    gap: 24px;
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee-scroll linear infinite;
+    padding-left: 12px;
+}
+
+.logo-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* Logo Cards as pill capsules */
+.logo-carousel-card,
+.logo-carousel-card-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 100px;
+    height: 70px;
+    width: 200px;
+    padding: 10px 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo-carousel-card-link {
+    text-decoration: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.logo-carousel-card-link:hover .logo-carousel-card {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.logo-carousel-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Infinite Scrolling Animation */
+@keyframes marquee-scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* CTA Styles */
+.logo-carousel-cta {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.logo-carousel-cta-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #6cc24a; /* Vibrant light green */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.logo-carousel-cta-link:hover {
+    color: #84e060;
+}
+
+.logo-carousel-cta-link:hover .arrow {
+    transform: translateX(4px);
+}
+
+.logo-carousel-cta-link .arrow {
+    transition: transform 0.2s ease;
+}

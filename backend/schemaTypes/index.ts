@@ -7,7 +7,27 @@ import tag from './tag'
 import customer from './customer'
 
 // components 
-import hero from './components/hero';
+import heading from './components/heading';
+import button from './components/button';
+import description from './components/description';
+import imageSettings from './components/imageSettings';
+import listBlock from './components/listBlock';
+import subHeading from './components/subHeading';
+
+// sections 
+import hero from './sections/hero';
+import contentBlock from "./sections/contentBlock";
+import ctaBanner from './sections/ctaBanner';
+import splitHero from './sections/splitHero';
+import videoHero from './sections/videoHero';
+import htmlBlock from './sections/htmlBlock';
+import featuresGrid from './sections/featuresGrid';
+import logoCarousel from './sections/logoCarousel';
+import counter from './sections/counter';
+import owlCarousel from './sections/owlCarousel';
+import resourceTabs from './sections/resourceTabs';
+import newsTicker from './sections/newsTicker';
+import splitCardHero from './sections/splitCardHero';
 
 export const schemaTypes = [
     page,
@@ -19,5 +39,25 @@ export const schemaTypes = [
     customer,
 
     // componetnts 
+    heading,
+    button,
+    description,
+    imageSettings,
+    listBlock,
+    subHeading,
+
+    // sections 
     hero,
+    contentBlock,
+    ctaBanner,
+    splitHero,
+    videoHero,
+    htmlBlock,
+    featuresGrid,
+    logoCarousel,
+    counter,
+    owlCarousel,
+    resourceTabs,
+    newsTicker,
+    splitCardHero
 ]

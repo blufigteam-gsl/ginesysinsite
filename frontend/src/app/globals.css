@@ -25,6 +25,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   line-height: 1.7;
+  background: var(--background)
 }
 
 /* Typography */

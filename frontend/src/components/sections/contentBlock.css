@@ -1,0 +1,128 @@
+.content-block-section {
+    padding: 0 20px;
+    background-color: #ffffff;
+}
+
+.content-block-section.is-contained {
+    background-color: transparent !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content-block-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-block-container.is-contained {
+    max-width: 1200px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 16px;
+    background-color: #fcfcfc;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.content-block-subheading {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66cc00;
+    margin-bottom: 12px;
+}
+
+.content-block-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0 0 24px;
+    letter-spacing: -0.5px;
+}
+
+.content-block-body {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
+.content-block-body p {
+    margin-bottom: 20px;
+}
+
+.content-block-body p:last-child {
+    margin-bottom: 0;
+}
+
+.content-block-body ul, 
+.content-block-body ol {
+    margin-bottom: 20px;
+    padding-left: 24px;
+}
+
+.content-block-body li {
+    margin-bottom: 8px;
+}
+
+.content-block-body h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.content-block-body h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+}
+
+.content-block-body a {
+    color: #66cc00;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.content-block-body a:hover {
+    color: #4da600;
+}
+
+@media (max-width: 991px) {
+    .content-block-container.is-contained {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-block-section {
+        padding: 0 20px;
+    }
+    
+    .content-block-section.is-contained {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .content-block-container.is-contained {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 12px;
+    }
+
+    .content-block-heading {
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+
+    .content-block-body {
+        font-size: 16px;
+    }
+}

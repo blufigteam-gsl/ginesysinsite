@@ -1,0 +1,150 @@
+.hero {
+    padding: 0 20px;
+}
+
+.hero-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.hero-container.is-contained {
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+@media (max-width: 991px) {
+    .hero-container.is-contained {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.hero-title {
+    margin: 0 0 20px;
+}
+
+.hero-subtitle {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.hero-description {
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.hero-list {
+    margin: 0 0 30px;
+    padding-left: 20px;
+}
+
+.hero-list li {
+    margin-bottom: 10px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    background: #66cc00;
+    color: #fff;
+
+    border: 2px solid #66cc00;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: #66cc00;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    background: transparent;
+    color: #66cc00;
+
+    border: 2px solid #66cc00;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.btn-secondary:hover {
+    background: #66cc00;
+    color: #fff;
+}
+
+.hero-list-dot {
+    list-style: none;
+    padding-left: 0;
+}
+
+.hero-list-dot li::before {
+    content: "•";
+    margin-right: 10px;
+}
+
+.hero-list-check {
+    list-style: none;
+    padding-left: 0;
+}
+
+.hero-list-check li::before {
+    content: "✓";
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.hero-list-arrow {
+    list-style: none;
+    padding-left: 0;
+}
+
+.hero-list-arrow li::before {
+    content: "→";
+    margin-right: 10px;
+}
+
+.hero-list-none {
+    list-style: none;
+    padding-left: 0;
+}
+
+@media (max-width: 991px) {
+
+    .hero {
+        padding: 0 20px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}

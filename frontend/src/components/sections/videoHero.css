@@ -1,0 +1,99 @@
+.video-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.video-hero.is-contained {
+    min-height: auto;
+    overflow: visible;
+    padding: 60px 20px;
+}
+
+.video-hero-container.is-contained {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.video-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1320px;
+    width: 100%;
+}
+
+.video-title {
+    margin: 0 0 20px;
+}
+
+.video-subtitle {
+    margin-bottom: 15px;
+}
+
+.video-description {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+.video-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+
+    .video-hero {
+        min-height: 500px;
+    }
+
+    .video-hero.is-contained {
+        padding: 0 15px;
+    }
+
+    .video-hero-container.is-contained {
+        min-height: 500px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .video-buttons {
+        flex-direction: column;
+    }
+
+}

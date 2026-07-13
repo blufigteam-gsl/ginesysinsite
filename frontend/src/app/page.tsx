@@ -1,15 +1,18 @@
-import Hero from "@/components/sections/Hero";
+import { client } from "@/lib/sanity";
+import PageBuilder from "@/components/sections/PageBuilder";
 
-export default function Home() {
+export default async function HomePage() {
+
+  const page = await client.fetch(`
+        *[
+            _type == "page" &&
+            pageType == "home"
+        ][0]
+    `);
+
   return (
-    <>
-      <Hero
-        title="Retail ERP Software"
-        subtitle="Ginesys"
-        description="Transform your retail business with a unified commerce platform."
-        ctaText="Ask For A Demo"
-        ctaLink="/contact-us"
-      />
-    </>
+    <PageBuilder
+      sections={page?.pageBuilder || []}
+    />
   );
 }
