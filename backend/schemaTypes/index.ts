@@ -28,6 +28,12 @@ import owlCarousel from './sections/owlCarousel';
 import resourceTabs from './sections/resourceTabs';
 import newsTicker from './sections/newsTicker';
 import splitCardHero from './sections/splitCardHero';
+import contactForm from './sections/forms/contactForm';
+import requestDemoForm from './sections/forms/requestDemoForm';
+import easeMyGstForm from './sections/forms/easeMyGstForm';
+import becomePartnerForm from './sections/forms/becomePartnerForm';
+import accordionTabsShowcase from './sections/accordionTabsShowcase';
+import contactSubmission from './contactSubmission';
 
 export const schemaTypes = [
     page,
@@ -59,5 +65,11 @@ export const schemaTypes = [
     owlCarousel,
     resourceTabs,
     newsTicker,
-    splitCardHero
+    splitCardHero,
+    contactForm,
+    requestDemoForm,
+    easeMyGstForm,
+    becomePartnerForm,
+    accordionTabsShowcase,
+    contactSubmission
 ]

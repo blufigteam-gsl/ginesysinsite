@@ -11,6 +11,13 @@ import OwlCarousel from "./OwlCarousel";
 import ResourceTabs from "./ResourceTabs";
 import NewsTicker from "./NewsTicker";
 import SplitCardHero from "./SplitCardHero";
+import ContactForm from "./forms/ContactForm";
+import RequestDemoForm from "./forms/RequestDemoForm";
+import EaseMyGstForm from "./forms/EaseMyGstForm";
+import BecomePartnerForm from "./forms/BecomePartnerForm";
+import AccordionTabsShowcase from "./AccordionTabsShowcase";
+
+
 
 
 
@@ -131,6 +138,47 @@ export default function PageBuilder({
                                 {...section}
                             />
                         );
+
+                    case "contactForm":
+                        return (
+                            <ContactForm
+                                key={section._key}
+                                {...section}
+                            />
+                        );
+
+                    case "requestDemoForm":
+                        return (
+                            <RequestDemoForm
+                                key={section._key}
+                                {...section}
+                            />
+                        );
+
+                    case "easeMyGstForm":
+                        return (
+                            <EaseMyGstForm
+                                key={section._key}
+                                {...section}
+                            />
+                        );
+
+                    case "becomePartnerForm":
+                        return (
+                            <BecomePartnerForm
+                                key={section._key}
+                                {...section}
+                            />
+                        );
+
+                    case "accordionTabsShowcase":
+                        return (
+                            <AccordionTabsShowcase
+                                key={section._key}
+                                {...section}
+                            />
+                        );
+
 
 
 

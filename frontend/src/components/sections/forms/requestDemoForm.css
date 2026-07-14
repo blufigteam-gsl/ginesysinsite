@@ -1,0 +1,305 @@
+/* Request Demo Form Section Styles */
+
+.request-demo-form-section {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.request-demo-form-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+    .request-demo-form-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Left Promo Content (Split Layout - Transparent overlay) */
+.request-demo-form-left-promo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+.request-demo-form-left-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.request-demo-form-left-title {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .request-demo-form-left-title {
+        font-size: 30px;
+    }
+}
+
+.request-demo-form-left-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.request-demo-form-left-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.request-demo-form-left-img {
+    max-height: 220px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Right Content / Floating White Card Block */
+.request-demo-form-right-block {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .request-demo-form-right-block {
+        padding: 40px 24px;
+    }
+}
+
+.request-demo-form-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 8px 0;
+}
+
+.request-demo-form-subtitle {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 28px 0;
+}
+
+/* Form Inputs Grid */
+.request-demo-form-inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 640px) {
+    .request-demo-form-inputs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.request-demo-form-field-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-demo-form-field-wrap.full-width {
+    grid-column: 1 / -1;
+}
+
+.request-demo-form-input,
+.request-demo-form-select,
+.request-demo-form-textarea {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: inherit;
+}
+
+.request-demo-form-input::placeholder,
+.request-demo-form-textarea::placeholder {
+    color: #94a3b8;
+}
+
+.request-demo-form-input:focus,
+.request-demo-form-select:focus,
+.request-demo-form-textarea:focus {
+    border-color: #8cc63f;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(140, 198, 63, 0.18);
+    transform: translateY(-1px);
+}
+
+.request-demo-form-textarea {
+    height: 76px;
+    resize: none;
+}
+
+/* Software Required Checkbox Accordion with Green Border */
+.request-demo-form-requirements-box {
+    grid-column: 1 / -1;
+    width: 100%;
+    border: 1.5px solid #8cc63f;
+    border-radius: 8px;
+    background-color: #fcfdfa;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.08);
+}
+
+.request-demo-form-requirements-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.request-demo-form-arrow-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+    color: #8cc63f;
+}
+
+.request-demo-form-arrow-icon.open {
+    transform: rotate(180deg);
+}
+
+.request-demo-form-requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px;
+    border-top: 1px solid rgba(140, 198, 63, 0.15);
+    background-color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .request-demo-form-requirements-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.request-demo-form-checkbox-label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #475569;
+    user-select: none;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.request-demo-form-checkbox-input {
+    width: 16px;
+    height: 16px;
+    accent-color: #8cc63f;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+/* Submit Action Button */
+.request-demo-form-submit-wrap {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.request-demo-form-submit-btn {
+    padding: 12px 40px;
+    background-color: #8cc63f;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(140, 198, 63, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.request-demo-form-submit-btn:hover {
+    background-color: #7ab32f;
+    box-shadow: 0 6px 20px rgba(140, 198, 63, 0.5);
+    transform: translateY(-2px);
+}
+
+.request-demo-form-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Alerts */
+.request-demo-form-success-alert {
+    grid-column: 1 / -1;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* Animations definition */
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

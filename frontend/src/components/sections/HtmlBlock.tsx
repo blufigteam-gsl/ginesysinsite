@@ -1,3 +1,7 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
+
 type HtmlBlockProps = {
     htmlCode?: string;
     layoutType?: "fullWidth" | "contained";
@@ -15,7 +19,36 @@ export default function HtmlBlock({
     innerPaddingTop,
     innerPaddingBottom,
 }: HtmlBlockProps) {
+    const [isMounted, setIsMounted] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted && containerRef.current) {
+            const container = containerRef.current;
+            const scripts = container.querySelectorAll("script");
+            scripts.forEach((oldScript) => {
+                const newScript = document.createElement("script");
+                
+                // Copy all attributes
+                Array.from(oldScript.attributes).forEach((attr) => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+                
+                // Copy inline javascript code
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                
+                // Replace old tag to force browser script execution
+                oldScript.parentNode?.replaceChild(newScript, oldScript);
+            });
+        }
+    }, [isMounted, htmlCode]);
+
     if (!htmlCode) return null;
+    if (!isMounted) return null; // Bypass SSR rendering to prevent hydration mismatches from dynamic CSS/JS blocks
 
     const isContained = layoutType === "contained";
     const padTop = paddingTop !== undefined ? `${paddingTop}px` : "80px";
@@ -32,6 +65,7 @@ export default function HtmlBlock({
             }}
         >
             <div 
+                ref={containerRef}
                 className={isContained ? "html-block-container is-contained" : "html-block-container"}
                 style={{
                     maxWidth: isContained ? "1320px" : "100%",

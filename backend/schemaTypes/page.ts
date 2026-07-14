@@ -64,6 +64,11 @@ export default defineType({
                 { type: 'resourceTabs' },
                 { type: 'newsTicker' },
                 { type: 'splitCardHero' },
+                { type: 'contactForm' },
+                { type: 'requestDemoForm' },
+                { type: 'easeMyGstForm' },
+                { type: 'becomePartnerForm' },
+                { type: 'accordionTabsShowcase' },
             ],
         }),
 
