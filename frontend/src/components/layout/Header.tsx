@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { client } from "@/lib/sanity";
+import Image from "next/image";
+import { client, urlFor } from "@/lib/sanity";
 import Navigation from "./Navigation";
 import MobileNavigation from "./MobileNavigation";
 import "./header.css";
@@ -26,6 +27,16 @@ export default async function Header() {
         }
     `);
 
+    const siteSettings = await client.fetch(`
+        *[_type == "siteSettings"][0]{
+            title,
+            logo
+        }
+    `);
+
+    const logoUrl = siteSettings?.logo ? urlFor(siteSettings.logo).url() : null;
+    const logoAlt = siteSettings?.logo?.alt || siteSettings?.title || "Ginesys Logo";
+
     return (
         <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
             <div className="max-w-[1200px] mx-auto px-4 relative">
@@ -33,11 +44,23 @@ export default async function Header() {
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center text-3xl tracking-tight text-gray-900">
-                        <svg className="w-11 h-8 mr-2" viewBox="0 0 46 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="9" stroke="#65cb00" strokeWidth="3.5" fill="none" />
-                            <circle cx="30" cy="16" r="9" stroke="#333333" strokeWidth="3.5" fill="none" />
-                        </svg>
-                        <span className="font-semibold text-2xl tracking-wide text-gray-800">GINESYS</span>
+                        {logoUrl ? (
+                            <img
+                                src={logoUrl}
+                                alt={logoAlt}
+                                className="h-[45px] max-w-[210px] w-auto object-contain"
+                            />
+                        ) : (
+                            <>
+                                <svg className="w-11 h-8 mr-2" viewBox="0 0 46 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16" r="9" stroke="#65cb00" strokeWidth="3.5" fill="none" />
+                                    <circle cx="30" cy="16" r="9" stroke="#333333" strokeWidth="3.5" fill="none" />
+                                </svg>
+                                <span className="font-semibold text-2xl tracking-wide text-gray-800">
+                                    {siteSettings?.title || "GINESYS"}
+                                </span>
+                            </>
+                        )}
                     </Link>
 
                     {/* Desktop Navigation */}

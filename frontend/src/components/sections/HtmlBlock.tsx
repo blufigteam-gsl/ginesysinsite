@@ -32,15 +32,15 @@ export default function HtmlBlock({
             const scripts = container.querySelectorAll("script");
             scripts.forEach((oldScript) => {
                 const newScript = document.createElement("script");
-                
+
                 // Copy all attributes
                 Array.from(oldScript.attributes).forEach((attr) => {
                     newScript.setAttribute(attr.name, attr.value);
                 });
-                
+
                 // Copy inline javascript code
                 newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                
+
                 // Replace old tag to force browser script execution
                 oldScript.parentNode?.replaceChild(newScript, oldScript);
             });
@@ -57,22 +57,22 @@ export default function HtmlBlock({
     const innerPadBottom = innerPaddingBottom !== undefined ? `${innerPaddingBottom}px` : "80px";
 
     return (
-        <section 
+        <section
             className="html-block-section"
             style={{
                 paddingTop: padTop,
                 paddingBottom: padBottom,
             }}
         >
-            <div 
+            <div
                 ref={containerRef}
                 className={isContained ? "html-block-container is-contained" : "html-block-container"}
                 style={{
                     maxWidth: isContained ? "1320px" : "100%",
                     marginLeft: "auto",
                     marginRight: "auto",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
+                    // paddingLeft: "20px",
+                    // paddingRight: "20px",
                     ...(isContained ? {
                         paddingTop: innerPadTop,
                         paddingBottom: innerPadBottom,

@@ -5,6 +5,7 @@ import author from './author'
 import category from './category'
 import tag from './tag'
 import customer from './customer'
+import siteSettings from './siteSettings'
 
 // components 
 import heading from './components/heading';
@@ -43,6 +44,7 @@ export const schemaTypes = [
     category,
     tag,
     customer,
+    siteSettings,
 
     // componetnts 
     heading,

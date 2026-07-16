@@ -17,10 +17,43 @@ const nunitoSans = Nunito_Sans({
   variable: "--font-body",
 });
 
-export const metadata: Metadata = {
-  title: "Ginesys",
-  description: "Ginesys Website",
-};
+import { client, urlFor } from "@/lib/sanity";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = await client.fetch(`
+    *[_type == "siteSettings"][0]{
+      title,
+      description,
+      favicon,
+      ogImage
+    }
+  `);
+
+  const title = siteSettings?.title || "Ginesys";
+  const description = siteSettings?.description || "Ginesys Website";
+  const faviconUrl = siteSettings?.favicon ? urlFor(siteSettings.favicon).url() : undefined;
+  const ogImageUrl = siteSettings?.ogImage ? urlFor(siteSettings.ogImage).url() : undefined;
+
+  return {
+    title,
+    description,
+    icons: faviconUrl ? {
+      icon: faviconUrl,
+      shortcut: faviconUrl,
+      apple: faviconUrl,
+    } : undefined,
+    openGraph: ogImageUrl ? {
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        }
+      ]
+    } : undefined,
+  };
+}
 
 export default function RootLayout({
   children,
